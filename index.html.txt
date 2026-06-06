@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>MC Intermediações | Agência de Negócios e Promoção de Vendas</title>
+    <!-- Bootstrap 5 + Icons + Google Fonts -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons (biblioteca oficial de ícones) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Google Fonts para tipografia moderna -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #0f172a;
+            scroll-behavior: smooth;
+        }
+        /* personalização de cores base */
+        :root {
+            --mc-primary: #0b3b5f;
+            --mc-secondary: #e67e22;
+            --mc-accent: #f39c12;
+            --mc-light-bg: #ffffff;
+            --mc-gray-bg: #f1f5f9;
+        }
+        .navbar {
+            background: rgba(11, 59, 95, 0.96) !important;
+            backdrop-filter: blur(2px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            padding: 0.8rem 0;
+        }
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.6rem;
+            letter-spacing: -0.3px;
+            color: white !important;
+        }
+        .navbar-brand span {
+            color: #f7b05e;
+            font-weight: 700;
+        }
+        .nav-link {
+            color: rgba(255,255,255,0.85) !important;
+            font-weight: 500;
+            transition: 0.2s;
+            margin: 0 4px;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #ffc107 !important;
+        }
+        .btn-mc-primary {
+            background-color: var(--mc-secondary);
+            border-color: var(--mc-secondary);
+            color: white;
+            font-weight: 600;
+            padding: 10px 26px;
+            border-radius: 40px;
+            transition: all 0.3s;
+        }
+        .btn-mc-primary:hover {
+            background-color: #d35400;
+            border-color: #d35400;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+        }
+        .btn-outline-mc {
+            border: 2px solid var(--mc-secondary);
+            color: var(--mc-secondary);
+            border-radius: 40px;
+            font-weight: 600;
+            padding: 8px 24px;
+            transition: 0.2s;
+        }
+        .btn-outline-mc:hover {
+            background-color: var(--mc-secondary);
+            color: white;
+        }
+        .hero-section {
+            background: linear-gradient(135deg, #0b3b5f 0%, #1b4f76 100%);
+            color: white;
+            padding: 5rem 0 4rem 0;
+            border-bottom-left-radius: 2rem;
+            border-bottom-right-radius: 2rem;
+        }
+        .card-hover {
+            transition: all 0.25s ease-in-out;
+            border: none;
+            border-radius: 1.2rem;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
+        }
+        .card-hover:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.12);
+        }
+        .icon-circle {
+            background-color: #eef2ff;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 60px;
+            margin-bottom: 1rem;
+            color: var(--mc-primary);
+            font-size: 2rem;
+        }
+        .section-title {
+            font-weight: 700;
+            position: relative;
+            margin-bottom: 2rem;
+            display: inline-block;
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -12px;
+            width: 60px;
+            height: 4px;
+            background-color: var(--mc-secondary);
+            border-radius: 4px;
+        }
+        .info-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.2rem 1rem;
+            height: 100%;
+            transition: 0.2s;
+            border-left: 4px solid var(--mc-secondary);
+        }
+        footer {
+            background-color: #0a2a3b;
+            color: #cddde9;
+            font-size: 0.9rem;
+        }
+        footer a {
+            color: #ffcd94;
+            text-decoration: none;
+        }
+        .badge-cnpj {
+            font-family: monospace;
+            background-color: rgba(255,255,255,0.2);
+            padding: 0.3rem 0.7rem;
+            border-radius: 2rem;
+            font-size: 0.85rem;
+        }
+        .contact-icon {
+            font-size: 1.3rem;
+            margin-right: 10px;
+            color: var(--mc-secondary);
+        }
+        @media (max-width: 768px) {
+            .hero-section {
+                text-align: center;
+                padding: 3rem 0;
+            }
+            .section-title:after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .section-title {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">MC<span>Intermediações</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-2">
+                    <li class="nav-item"><a class="nav-link active" href="#inicio">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#dados">Dados</a></li>
+                </ul>
+                <a href="#contato" class="btn btn-mc-primary ms-lg-3">Falar com especialista</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO / INÍCIO -->
+    <section id="inicio" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-7">
+                    <span class="badge bg-warning text-dark mb-3 px-3 py-2 rounded-pill"><i class="bi bi-stars"></i> Intermediação e agenciamento profissional</span>
+                    <h1 class="display-4 fw-bold mb-3">Soluções que <span style="color:#f7b05e;">conectam negócios</span> e impulsionam resultados</h1>
+                    <p class="lead mb-4">MC Intermediações é a parceira estratégica para alavancar vendas, intermediar negócios e potencializar sua presença no mercado. Da negociação à execução, entregamos excelência.</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#servicos" class="btn btn-light btn-lg rounded-pill px-4 fw-semibold"><i class="bi bi-rocket-takeoff"></i> Nossos serviços</a>
+                        <a href="#contato" class="btn btn-outline-light btn-lg rounded-pill px-4"><i class="bi bi-chat-dots"></i> Consultoria gratuita</a>
+                    </div>
+                    <div class="mt-4 d-flex align-items-center gap-3 flex-wrap">
+                        <div><i class="bi bi-check-circle-fill text-warning"></i> <span class="fw-semibold">Simples Nacional</span></div>
+                        <div><i class="bi bi-building"></i> Matriz - São Paulo/SP</div>
+                        <div><i class="bi bi-people-fill"></i> Ativa desde jan/2026</div>
+                    </div>
+                </div>
+                <div class="col-lg-5 text-center">
+                    <i class="bi bi-briefcase-fill" style="font-size: 12rem; opacity: 0.9; filter: drop-shadow(0 8px 12px rgba(0,0,0,0.2));"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DESTAQUES / INFO RÁPIDA + CNAES -->
+    <div class="container mt-5 pt-2">
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-4">
+                <div class="info-card text-center">
+                    <i class="bi bi-graph-up" style="font-size: 2.3rem; color: #e67e22;"></i>
+                    <h5 class="mt-2 fw-bold">Promoção de vendas</h5>
+                    <p class="mb-0 text-secondary">CNAE Principal: 73.19-0-02</p>
+                    <small>Estratégias completas para alavancar resultados comerciais.</small>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="info-card text-center">
+                    <i class="bi bi-diagram-3" style="font-size: 2.3rem; color: #e67e22;"></i>
+                    <h5 class="mt-2 fw-bold">Intermediação & Agenciamento</h5>
+                    <p class="mb-0 text-secondary">CNAE Secundário: 74.90-1-04</p>
+                    <small>Negócios em geral (exceto imobiliários). Conectamos parceiros.</small>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="info-card text-center">
+                    <i class="bi bi-calendar-check" style="font-size: 2.3rem; color: #e67e22;"></i>
+                    <h5 class="mt-2 fw-bold">4 meses de atuação</h5>
+                    <p class="mb-0 text-secondary">Abertura: 27/01/2026</p>
+                    <small>Micro Empresa com capital social de R$ 1.000,00.</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SOBRE + MISSÃO / VALORES -->
+    <section id="sobre" class="container my-5 py-4">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4">
+                <div class="bg-white p-4 rounded-4 shadow-sm">
+                    <h2 class="section-title">Sobre a MC Intermediações</h2>
+                    <p class="mt-4 fs-6"><strong>Courchevel Intermediacao e Agenciamento de Negocios LTDA</strong>, atuando como <strong class="text-primary">MC Intermediações</strong>, somos uma microempresa moderna, especializada em <strong>promoção de vendas e intermediação comercial</strong>. Fundada em janeiro de 2026, já estamos posicionados estrategicamente na Avenida Brigadeiro Faria Lima, o coração financeiro de São Paulo.</p>
+                    <p>Nosso propósito é criar pontes sólidas entre empresas e oportunidades, potencializando o crescimento com ética, agilidade e conhecimento de mercado. Atendemos negócios de diferentes segmentos com soluções personalizadas de agenciamento e representação comercial.</p>
+                    <div class="row mt-3">
+                        <div class="col-6">
+                            <i class="bi bi-trophy-fill text-warning"></i> <strong>Missão:</strong> Entregar resultados através de intermediação eficiente.
+                        </div>
+                        <div class="col-6">
+                            <i class="bi bi-eye-fill text-info"></i> <strong>Visão:</strong> Ser referência em agenciamento de negócios no Brasil.
+                        </div>
+                        <div class="col-12 mt-2">
+                            <i class="bi bi-gem text-secondary"></i> <strong>Valores:</strong> Transparência, compromisso com prazos e foco em relacionamento duradouro.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="bg-white p-4 rounded-4 shadow-sm">
+                    <h4 class="fw-semibold"><i class="bi bi-building-check"></i> Dados Cadastrais</h4>
+                    <hr>
+                    <p><i class="bi bi-cnpj"></i> <strong>CNPJ:</strong> 64.737.112/0001-02</p>
+                    <p><i class="bi bi-card-text"></i> <strong>Razão Social:</strong> Courchevel Intermediacao e Agenciamento de Negocios LTDA</p>
+                    <p><i class="bi bi-shop"></i> <strong>Nome Fantasia:</strong> Mc Intermediacoes</p>
+                    <p><i class="bi bi-calendar-event"></i> <strong>Abertura:</strong> 27/01/2026 • <span class="badge bg-success">Situação: ATIVA</span></p>
+                    <p><i class="bi bi-bank"></i> <strong>Porte/Natureza:</strong> Micro Empresa / Sociedade Empresária Limitada</p>
+                    <p><i class="bi bi-check2-circle text-success"></i> <strong>Optante pelo Simples Nacional:</strong> Sim (desde 27/01/2026)</p>
+                    <p><i class="bi bi-currency-dollar"></i> <strong>Capital Social:</strong> R$ 1.000,00</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVIÇOS / NOSSAS SOLUÇÕES -->
+    <section id="servicos" class="bg-light py-5">
+        <div class="container py-3">
+            <div class="text-center mb-5">
+                <h2 class="section-title d-inline-block">Serviços especializados</h2>
+                <p class="lead mt-3">Oferecemos soluções completas em intermediação, agenciamento e promoção de vendas para alavancar seu negócio.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card card-hover h-100 p-3">
+                        <div class="icon-circle"><i class="bi bi-megaphone-fill fs-1"></i></div>
+                        <h4>Promoção de Vendas</h4>
+                        <p>Planejamento e execução de campanhas, ações promocionais e estratégias para aumentar sua conversão, usando técnicas de marketing direto e digital.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card card-hover h-100 p-3">
+                        <div class="icon-circle"><i class="bi bi-arrow-left-right"></i></div>
+                        <h4>Intermediação Comercial</h4>
+                        <p>Conectamos fornecedores, distribuidores e compradores. Negociação B2B, contratos e aproximação estratégica entre empresas de setores diversos.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card card-hover h-100 p-3">
+                        <div class="icon-circle"><i class="bi bi-person-workspace"></i></div>
+                        <h4>Agenciamento de Negócios</h4>
+                        <p>Representação comercial e agenciamento de serviços, prospecção ativa de clientes, fechamento de parcerias e acompanhamento de contratos.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card card-hover h-100 p-3">
+                        <div class="icon-circle"><i class="bi bi-search-heart"></i></div>
+                        <h4>Inteligência de Mercado</h4>
+                        <p>Análise de concorrência, mapeamento de oportunidades e relatórios setoriais para tomada de decisão assertiva.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card card-hover h-100 p-3">
+                        <div class="icon-circle"><i class="bi bi-chat-square-quote"></i></div>
+                        <h4>Consultoria em Vendas</h4>
+                        <p>Treinamento de equipes, estruturação de funil e melhores práticas para aumentar performance comercial.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card card-hover h-100 p-3">
+                        <div class="icon-circle"><i class="bi bi-file-earmark-check"></i></div>
+                        <h4>Gestão de Parcerias</h4>
+                        <p>Intermediação para acordos estratégicos, licenciamento e desenvolvimento de canais de distribuição.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTATOS + LOCALIZAÇÃO -->
+    <section id="contato" class="container my-5 py-4">
+        <div class="row g-5">
+            <div class="col-lg-6">
+                <h2 class="section-title">Fale conosco</h2>
+                <p class="mb-4">Estamos prontos para ajudar sua empresa a crescer com soluções de intermediação. Entre em contato e agende uma conversa sem compromisso.</p>
+                <div class="bg-white rounded-4 p-4 shadow-sm">
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><i class="bi bi-envelope-fill contact-icon"></i> <strong>E-mail:</strong> <a href="mailto:meucnpj@contabilizei.com.br">meucnpj@contabilizei.com.br</a></li>
+                        <li class="mb-3"><i class="bi bi-telephone-fill contact-icon"></i> <strong>Telefone / WhatsApp:</strong> <a href="https://wa.me/5541997880145" target="_blank" class="text-decoration-none">(41) 99788-0145</a> <span class="badge bg-secondary ms-2">Ligar / Whatsapp</span></li>
+                        <li class="mb-3"><i class="bi bi-geo-alt-fill contact-icon"></i> <strong>Escritório Central:</strong> Av. Brig Faria Lima, 1811 - Jardim Paulistano, São Paulo - SP, CEP 01452-001</li>
+                        <li><i class="bi bi-envelope-paper contact-icon"></i> <strong>Correspondência:</strong> Mc Intermediacoes Courchevel Intermediacao e Agenciamento de Negocios LTDA, Av. Brig Faria Lima 1811 - Jardim Paulistano, São Paulo/SP - 01452-001</li>
+                    </ul>
+                    <div class="mt-4 d-flex gap-3">
+                        <a href="https://wa.me/5541997880145" class="btn btn-success rounded-pill px-4" target="_blank"><i class="bi bi-whatsapp"></i> WhatsApp comercial</a>
+                        <a href="mailto:meucnpj@contabilizei.com.br" class="btn btn-outline-secondary rounded-pill px-4"><i class="bi bi-envelope"></i> Enviar e-mail</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="bg-white rounded-4 overflow-hidden shadow-sm h-100">
+                    <div class="p-4 border-bottom">
+                        <h4><i class="bi bi-map"></i> Localização estratégica</h4>
+                        <p class="mb-2"><strong>Avenida Brigadeiro Faria Lima, 1811</strong> – um dos principais centros corporativos da América Latina.</p>
+                        <p><i class="bi bi-pin-map-fill text-danger"></i> Referência: Próximo ao Shopping Iguatemi, fácil acesso por transporte público.</p>
+                    </div>
+                    <!-- Mapa estático (iframe responsivo) -->
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.124031158288!2d-46.69600368447581!3d-23.566715968125266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce57d164b5f645%3A0x4036332ed0c60420!2sAv.%20Brig.%20Faria%20Lima%2C%201811%20-%20Jardim%20Paulistano%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001452-001!5e0!3m2!1spt-BR!2sbr!4v1712345678901!5m2!1spt-BR!2sbr" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <div class="p-3 small bg-light">
+                        <i class="bi bi-building"></i> CEP: 01452-001 | Bairro: Jardim Paulistano, São Paulo/SP
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO DETALHADA DE DADOS (CNAE, SIMPLES E ESTRUTURA) -->
+    <section id="dados" class="bg-light py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-4">
+                    <h2 class="section-title d-inline-block">Informações institucionais</h2>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="bg-white p-4 rounded-4 h-100">
+                        <i class="bi bi-clipboard-data fs-2 text-secondary"></i>
+                        <h4 class="mt-2">Detalhes da empresa</h4>
+                        <ul class="list-group list-group-flush mt-3">
+                            <li class="list-group-item d-flex justify-content-between"><span>CNPJ:</span><strong>64.737.112/0001-02</strong></li>
+                            <li class="list-group-item d-flex justify-content-between"><span>Data Abertura:</span><strong>27/01/2026 (há 4 meses e 10 dias)</strong></li>
+                            <li class="list-group-item d-flex justify-content-between"><span>Situação Cadastral:</span><span class="badge bg-success">ATIVA</span></li>
+                            <li class="list-group-item d-flex justify-content-between"><span>Optante pelo MEI:</span><span>Não</span></li>
+                            <li class="list-group-item d-flex justify-content-between"><span>Regime Tributário:</span><span>Simples Nacional (desde 27/01/2026)</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="bg-white p-4 rounded-4 h-100">
+                        <i class="bi bi-briefcase fs-2 text-secondary"></i>
+                        <h4 class="mt-2">Atividades Econômicas - CNAE</h4>
+                        <div class="mt-3">
+                            <div class="alert alert-primary mb-3"><i class="bi bi-star-fill"></i> <strong>Principal:</strong> 73.19-0-02 - Promoção de vendas</div>
+                            <div class="alert alert-secondary"><i class="bi bi-diagram-3"></i> <strong>Secundária:</strong> 74.90-1-04 - Atividades de intermediação e agenciamento de serviços e negócios em geral, exceto imobiliários</div>
+                            <p class="mt-3 small text-muted">Capital Social: R$ 1.000,00 | Natureza Jurídica: Sociedade Empresária Limitada</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER COMPLETO -->
+    <footer class="pt-5 pb-4 mt-4">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-md-5">
+                    <h5 class="text-white">MC Intermediações</h5>
+                    <p>Intermediação e agenciamento de negócios com foco em resultados. Promoção de vendas e conexões estratégicas para empresas de todo o Brasil.</p>
+                    <div class="d-flex gap-3 fs-5">
+                        <a href="#" class="text-white-50"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-white-50"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="text-white-50"><i class="bi bi-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="text-white">Contato Rápido</h5>
+                    <p><i class="bi bi-envelope"></i> meucnpj@contabilizei.com.br<br>
+                    <i class="bi bi-telephone"></i> (41) 99788-0145<br>
+                    <i class="bi bi-geo-alt"></i> Av. Brig Faria Lima, 1811 - SP</p>
+                </div>
+                <div class="col-md-3">
+                    <h5 class="text-white">Legal</h5>
+                    <p>CNPJ: 64.737.112/0001-02<br>
+                    Situação: Ativa<br>
+                    Micro Empresa - Simples Nacional<br>
+                    © 2026 Todos os direitos reservados.</p>
+                </div>
+            </div>
+            <hr class="mt-4 opacity-25">
+            <div class="text-center small">
+                Courchevel Intermediacao e Agenciamento de Negocios LTDA | Av. Brig Faria Lima, 1811 - São Paulo/SP | CEP 01452-001
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
